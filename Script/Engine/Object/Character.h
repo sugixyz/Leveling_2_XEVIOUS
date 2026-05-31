@@ -25,6 +25,11 @@ public:
 	/// 移動用の共通仮想関数
 	/// </summary>
 	virtual void Move() {}
+
+	/// <summary>
+	/// 範囲外チェック用の共通仮想関数
+	/// </summary>
+	virtual void CheckOutPos() {}
 protected:
 	//速度
 	Vector2 velocity;
