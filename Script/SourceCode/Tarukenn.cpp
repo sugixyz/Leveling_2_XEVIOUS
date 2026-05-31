@@ -1,11 +1,11 @@
 ﻿#include "Tarukenn.h"
 #include"Bullet.h"
 
-Tarukenn::Tarukenn()
+Tarukenn::Tarukenn(float x)
 	:Character(Tag::ENEMY)
 {
 	radius = 20;
-	position = { (float)GetRand(SCREEN_WIDTH),(float)-radius};
+	position = { x,(float)-radius};
 	velocity = CalculationVelocity(SPEED);
 	targetY = GetRand(200) + SCREEN_HEIGHT / 2;
 	state = State::CHASE;

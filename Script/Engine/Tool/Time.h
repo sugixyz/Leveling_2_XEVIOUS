@@ -99,7 +99,7 @@ struct Timer
 	/// <returns>フレーム時間を超えた瞬間にtrue</returns>
 	bool isExpired(int frame)
 	{
-		int prevCount = counter--;
+		int prevCount = counter - 1;
 
 		//前回の時間と今回の時間でtimeを跨いでいるか
 		return (prevCount < frame) && (frame <= counter);
@@ -133,6 +133,15 @@ struct Timer
 	bool IsStop()
 	{
 		return isStop;
+	}
+	/// <summary>
+	/// タイマーのリセット
+	/// </summary>
+	void Reset()
+	{
+		counter = 0;
+		timer = 0.0f;
+		isStop = false;
 	}
 };
 

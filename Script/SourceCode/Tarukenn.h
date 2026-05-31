@@ -4,7 +4,7 @@
 class Tarukenn : public Character
 {
 public:
-	Tarukenn();
+	Tarukenn(float x);
 	~Tarukenn();
 	void Update() override;
 	void Draw() override;
