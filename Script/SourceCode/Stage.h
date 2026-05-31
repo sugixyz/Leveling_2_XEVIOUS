@@ -10,4 +10,6 @@ public:
 	void Draw() override;
 private:
 	const unsigned int STAGE_COLOR = GetColor(30, 120, 30);
+private:
+	const float CREATE_ENEMY_INTERVAL = 2.0f;
 };

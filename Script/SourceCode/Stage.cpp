@@ -1,5 +1,6 @@
 ﻿#include "Stage.h"
 #include"Player.h"
+#include"Tarukenn.h"
 
 Stage::Stage()
 	:GameObject(Tag::STAGE)
@@ -12,6 +13,10 @@ Stage::~Stage()
 
 void Stage::Update()
 {
+	if (gGameTimer.IsEvery(CREATE_ENEMY_INTERVAL))
+	{
+		new Tarukenn();
+	}
 }
 
 void Stage::Draw()

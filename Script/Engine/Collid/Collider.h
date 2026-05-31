@@ -7,8 +7,11 @@ enum class Layer : uint32_t
 {
 	NONE = 0,
 	PLAYER = 1 << 0,
-	ENEMY = 1 << 1,
-	ENEMY2 = 1 << 2
+	TARUKENN = 1 << 1,
+	TOROIDO = 1 << 2,
+	BOSS = 1 << 3,
+	PLAYER_BULLET = 1 << 4,
+	ENEMY_BULLET = 1 << 5
 };
 
 //コライダーの構造体

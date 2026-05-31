@@ -10,7 +10,5 @@ public:
 	void Draw() override;
 	void OnCollision(GameObject* other) override;
 	void Move() override;
-	void CheckOutPos() override;
 private:
-	const int RADIUS = 3;
 };

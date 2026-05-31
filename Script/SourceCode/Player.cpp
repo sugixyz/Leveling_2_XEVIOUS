@@ -1,12 +1,20 @@
 ﻿#include "Player.h"
 #include"Bullet.h"
+#include"Ui.h"
 
 Player::Player()
 	:Character(Tag::PLAYER)
 {
 	position = { SCREEN_WIDTH / 2, 700.0f };
 	velocity = { 0.0f,0.0f };
+	radius = 20;
 	hp = MAX_HP;
+
+	new Ui("残機", &hp);
+
+	Vector2 start = { 0,0 };
+	uint32_t mask = (uint32_t)Layer::TARUKENN | (uint32_t)Layer::TOROIDO | (uint32_t)Layer::BOSS;
+	myCollider.SetCapsule(start, start, radius, Layer::PLAYER, mask);
 }
 
 Player::~Player()
@@ -25,11 +33,13 @@ void Player::Draw()
 	float x = position.x + SCREEN_OFFSET_X;
 	float y = position.y + SCREEN_OFFSET_Y;
 
-	DrawCircle((int)x, (int)y, RADIUS, COL_GREEN, TRUE);
+	DrawCircle((int)x, (int)y, radius, COL_GREEN, TRUE);
 }
 
 void Player::OnCollision(GameObject * other)
-{}
+{
+	hp--;
+}
 
 void Player::Move()
 {
@@ -57,10 +67,10 @@ void Player::Move()
 
 void Player::CheckOutPos()
 {
-	if (position.x <= RADIUS)position.x = RADIUS;
-	if (position.x >= SCREEN_WIDTH - RADIUS)position.x = SCREEN_WIDTH - RADIUS;
+	if (position.x <= radius)position.x = radius;
+	if (position.x >= SCREEN_WIDTH - radius)position.x = SCREEN_WIDTH - radius;
 	if (position.y <= SCREEN_HEIGHT / 2)position.y = SCREEN_HEIGHT / 2;
-	if (position.y >= SCREEN_HEIGHT - RADIUS)position.y = SCREEN_HEIGHT - RADIUS;
+	if (position.y >= SCREEN_HEIGHT - radius)position.y = SCREEN_HEIGHT - radius;
 }
 
 void Player::ShotBullet()

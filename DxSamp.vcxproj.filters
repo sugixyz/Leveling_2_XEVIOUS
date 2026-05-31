@@ -28,6 +28,12 @@
     <Filter Include="Bullet">
       <UniqueIdentifier>{bb5f7476-cdab-45bb-930a-3f5ed89cbfbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tarukenn">
+      <UniqueIdentifier>{4713d9ce-7b2d-41a1-95b4-c486ae20547f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Toroido">
+      <UniqueIdentifier>{9ac7b4f3-722b-4539-b4f4-744df29b740f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -81,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="Script\SourceCode\Bullet.cpp">
       <Filter>Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Tarukenn.cpp">
+      <Filter>Tarukenn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +170,12 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Bullet.h">
       <Filter>Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Tarukenn.h">
+      <Filter>Tarukenn</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Toroido.h">
+      <Filter>Toroido</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

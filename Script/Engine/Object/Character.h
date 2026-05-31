@@ -29,8 +29,16 @@ public:
 	/// <summary>
 	/// 範囲外チェック用の共通仮想関数
 	/// </summary>
-	virtual void CheckOutPos() {}
+	virtual void CheckOutPos() 
+	{
+		if (position.x <= -radius)DestroyMe();
+		else if (position.x >= SCREEN_WIDTH + radius)DestroyMe();
+		else if (position.y <= -radius)DestroyMe();
+		else if (position.y >= SCREEN_HEIGHT + radius)DestroyMe();
+	}
 protected:
 	//速度
 	Vector2 velocity;
+	//半径
+	int radius;
 };

@@ -148,6 +148,7 @@
     <ClCompile Include="Script\SourceCode\Bullet.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\Stage.cpp" />
+    <ClCompile Include="Script\SourceCode\Tarukenn.cpp" />
     <ClCompile Include="Script\SourceCode\Ui.cpp" />
     <ClCompile Include="Script\theMain.cpp" />
   </ItemGroup>
@@ -177,6 +178,8 @@
     <ClInclude Include="Script\SourceCode\Bullet.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\Stage.h" />
+    <ClInclude Include="Script\SourceCode\Tarukenn.h" />
+    <ClInclude Include="Script\SourceCode\Toroido.h" />
     <ClInclude Include="Script\SourceCode\Ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

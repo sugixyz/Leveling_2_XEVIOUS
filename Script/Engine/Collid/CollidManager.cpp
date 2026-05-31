@@ -158,13 +158,14 @@ bool CollidManager::CheckCalsuleBoxCollision(GameObject* objA, GameObject* objB)
 void CollidManager::DrawCollider(GameObject* obj)
 {
 	if (!obj->HasCollider())return;
+	Vector2 offset = { SCREEN_OFFSET_X,SCREEN_OFFSET_Y };
 	if (obj->HasCapsule())
 	{
 		Collider col = obj->GetCollider();
 		Vector2 pos = obj->GetPos();
 
-		Vector2 p1 = pos + col.cPosA;
-		Vector2 p2 = pos + col.cPosB;
+		Vector2 p1 = pos + col.cPosA + offset;
+		Vector2 p2 = pos + col.cPosB + offset;
 
 		//始点と終点が同じであれば円として表示
 		//if (Math2D::LengthSq(p1 - p2) <= 0.000f)
@@ -185,8 +186,8 @@ void CollidManager::DrawCollider(GameObject* obj)
 		Collider col = obj->GetCollider();
 		Vector2 pos = obj->GetPos();
 
-		Vector2 p1 = pos + col.bPosA;
-		Vector2 p2 = pos + col.bPosB;
+		Vector2 p1 = pos + col.bPosA + offset;
+		Vector2 p2 = pos + col.bPosB + offset;
 
 		DrawBox((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, DEBUG_COL, FALSE);
 	}
