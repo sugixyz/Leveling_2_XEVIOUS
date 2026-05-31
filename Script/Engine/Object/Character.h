@@ -20,6 +20,11 @@ public:
 	/// </summary>
 	/// <returns>現在の速度</returns>
 	Vector2 GetVel() { return velocity; }
+
+	/// <summary>
+	/// 移動用の共通仮想関数
+	/// </summary>
+	virtual void Move() {}
 protected:
 	//速度
 	Vector2 velocity;

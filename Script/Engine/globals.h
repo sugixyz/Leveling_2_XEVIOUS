@@ -6,7 +6,14 @@
 const int WIN_WIDTH = 1920;
 const int WIN_HEIGHT = 1080;
 //描画ウィンドウの拡大倍率
-const int SCREEN_ZOOM = 1;
+const int WINDOW_ZOOM = 1;
+
+//ゲームのスクリーンサイズ
+const int SCREEN_WIDTH = 600;
+const int SCREEN_HEIGHT = 900;
+//スクリーンのオフセット
+const int SCREEN_OFFSET_X = 100;
+const int SCREEN_OFFSET_Y = 100;
 
 //色
 //赤

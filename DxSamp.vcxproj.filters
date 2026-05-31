@@ -19,6 +19,12 @@
     <Filter Include="Ui">
       <UniqueIdentifier>{2d10f277-badb-4ffc-a53d-7d96b3be3afd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Stage">
+      <UniqueIdentifier>{9d378301-e1c2-4ef9-94ed-7061fbe49cc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{be1c0ca2-25b3-4623-bf17-9b552b31c3b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -63,6 +69,12 @@
     </ClCompile>
     <ClCompile Include="Script\SourceCode\Ui.cpp">
       <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Stage.cpp">
+      <Filter>Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Player.cpp">
+      <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +146,12 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Ui.h">
       <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Stage.h">
+      <Filter>Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Player.h">
+      <Filter>Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

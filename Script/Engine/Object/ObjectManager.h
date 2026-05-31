@@ -12,6 +12,7 @@ class GameObject;
 enum class Tag
 {
 	SYSTEM,
+	STAGE,
 	PLAYER,
 	ENEMY,
 	ATTACK,

@@ -215,7 +215,7 @@ namespace Math2D
 	inline Vector2 Normalize(const Vector2& v)
 	{
 		float len = Length(v);
-		if (len < 0.000001f) return { 1.0f, 0.0f }; //エラー ごまかす
+		if (len < 0.000001f) return { 0.0f, 0.0f }; //エラー ごまかす
 		return { v.x / len,v.y / len };
 	}
 	/// <summary>

@@ -85,8 +85,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	Initialize();
 
 	//SCREEN_ZOOMに拡大するために仮想のスクリーンを作る
-	int vWidth = WIN_WIDTH / SCREEN_ZOOM;
-	int vHeight = WIN_HEIGHT / SCREEN_ZOOM;
+	int vWidth = WIN_WIDTH / WINDOW_ZOOM;
+	int vHeight = WIN_HEIGHT / WINDOW_ZOOM;
 	int virtualScreen = MakeScreen(vWidth, vHeight, FALSE);
 
 	while (true)

@@ -1,5 +1,7 @@
 ﻿#include "PlayScene.h"
 #include"../../SourceCode/Ui.h"
+#include"../../SourceCode/Stage.h"
+
 /// <summary>
 /// プレイ中の画面の遷移をする
 /// </summary>
@@ -9,6 +11,8 @@ PlayScene::PlayScene()
 	gGameTimer.timer = 0.0f;
 
 	new Ui("タイマー", &gGameTimer.timer);
+
+	new Stage();
 }
 
 PlayScene::~PlayScene()

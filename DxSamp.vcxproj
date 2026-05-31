@@ -145,6 +145,8 @@
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp" />
     <ClCompile Include="Script\Engine\Tool\DataHolder.cpp" />
     <ClCompile Include="Script\Engine\Tool\Input.cpp" />
+    <ClCompile Include="Script\SourceCode\Player.cpp" />
+    <ClCompile Include="Script\SourceCode\Stage.cpp" />
     <ClCompile Include="Script\SourceCode\Ui.cpp" />
     <ClCompile Include="Script\theMain.cpp" />
   </ItemGroup>
@@ -171,6 +173,8 @@
     <ClInclude Include="Script\Engine\Tool\Lerp.h" />
     <ClInclude Include="Script\Engine\Tool\Math2D.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
+    <ClInclude Include="Script\SourceCode\Player.h" />
+    <ClInclude Include="Script\SourceCode\Stage.h" />
     <ClInclude Include="Script\SourceCode\Ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
