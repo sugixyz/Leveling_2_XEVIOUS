@@ -1,11 +1,5 @@
 ﻿#include "Player.h"
-
-namespace
-{
-	const int MAX_HP = 5;
-	const float SPEED = 5.0f;
-	const int RADIUS = 20;
-}
+#include"Bullet.h"
 
 Player::Player()
 	:Character(Tag::PLAYER)
@@ -22,6 +16,8 @@ void Player::Update()
 {
 	Move();
 	CheckOutPos();
+
+	ShotBullet();
 }
 
 void Player::Draw()
@@ -29,7 +25,7 @@ void Player::Draw()
 	float x = position.x + SCREEN_OFFSET_X;
 	float y = position.y + SCREEN_OFFSET_Y;
 
-	DrawCircle((int)x, (int)y, RADIUS, COL_RED, TRUE);
+	DrawCircle((int)x, (int)y, RADIUS, COL_GREEN, TRUE);
 }
 
 void Player::OnCollision(GameObject * other)
@@ -68,4 +64,10 @@ void Player::CheckOutPos()
 }
 
 void Player::ShotBullet()
-{}
+{
+	if (Input::IsKeyDown(KEY_INPUT_SPACE))
+	{
+		new Bullet(Tag::PLAYER, position + SHOT_OFFSET, SHOT_VEL);
+		new Bullet(Tag::PLAYER, position + Vector2(-SHOT_OFFSET.x, SHOT_OFFSET.y), SHOT_VEL);
+	}
+}

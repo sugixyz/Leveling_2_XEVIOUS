@@ -25,6 +25,9 @@
     <Filter Include="Player">
       <UniqueIdentifier>{be1c0ca2-25b3-4623-bf17-9b552b31c3b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bullet">
+      <UniqueIdentifier>{bb5f7476-cdab-45bb-930a-3f5ed89cbfbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -75,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="Script\SourceCode\Player.cpp">
       <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Bullet.cpp">
+      <Filter>Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +158,9 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Player.h">
       <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Bullet.h">
+      <Filter>Bullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

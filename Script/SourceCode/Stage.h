@@ -8,4 +8,6 @@ public:
 	~Stage();
 	void Update() override;
 	void Draw() override;
+private:
+	const unsigned int STAGE_COLOR = GetColor(30, 120, 30);
 };

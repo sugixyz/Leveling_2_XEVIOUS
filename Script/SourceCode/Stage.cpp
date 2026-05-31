@@ -1,11 +1,6 @@
 ﻿#include "Stage.h"
 #include"Player.h"
 
-namespace
-{
-	const unsigned int STAGE_COLOR = GetColor(30, 120, 30);
-}
-
 Stage::Stage()
 	:GameObject(Tag::STAGE)
 {
