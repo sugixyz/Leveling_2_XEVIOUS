@@ -1,0 +1,133 @@
+﻿#pragma once
+/// <summary>
+/// ゲームオブジェクトの基底クラス
+/// </summary>
+
+#include<string>
+#include"ObjectManager.h"
+#include"../Scene/SceneManager.h"
+#include"../globals.h"
+#include"../Tool/Math2D.h"
+#include"../Tool/Input.h"
+#include "DxLib.h"
+#include"../Collid/Collider.h"
+
+/// <summary>
+/// これを継承したクラスのインスタンスは、ObjectManagerで管理され、
+/// Update()とDraw()が自動で呼ばれます
+/// </summary>
+class GameObject
+{
+public:
+	GameObject(Tag tag)
+		: destroy(false),
+		dontDestroy(false),
+		myTag(tag)
+	{
+		ObjectManager::Push(this);
+	}
+	virtual ~GameObject()
+	{
+		ObjectManager::Pop(this);
+	}
+
+	/// <summary>
+	/// 毎フレームの更新処理のために呼ばれます
+	/// </summary>
+	virtual void Update() {}
+
+	/// <summary>
+	/// 毎フレームの描画処理のために呼ばれます
+	/// </summary>
+	virtual void Draw() {}
+
+	/// <summary>
+	/// 自分のインスタンスを削除する時に呼び出してください
+	/// 次回のUpdateの前に削除されます
+	/// </summary>
+	void DestroyMe() { destroy = true; }
+
+	/// <summary>
+	/// DestroyMeされているか調べる
+	/// この関数はObjectManagerが使っています。
+	/// </summary>
+	/// <returns>DestroyMeされているとtrue</returns>
+	inline bool DestroyRequested() const { return destroy; }
+
+	/// <summary>
+	/// シーンチェンジするときに、削除されなくする
+	/// </summary>
+	/// <param name="sw">書かなければtrue、falseにすると削除される</param>
+	void DontDestroyOnSceneChange(bool sw = true) { dontDestroy = sw; }
+
+	/// <summary>
+	/// DontDestroyが設定されているか調べる
+	/// この関数はObjectManagerが使っています
+	/// </summary>
+	/// <returns>DontDetroyになっていればtrue</returns>
+	bool IsDontDestroy() const { return dontDestroy; }
+
+	/// <summary>
+	/// 自分のタグを取得
+	/// </summary>
+	/// <returns>タグ</returns>
+	Tag GetTag() const
+	{
+		return myTag;
+	}
+
+	/// <summary>
+	/// コライダーを持っているか
+	/// </summary>
+	/// <returns>コライダーがあればtrue</returns>
+	bool HasCollider() { return myCollider.hasObject; }
+
+	/// <summary>
+	/// カプセルコライダーを持っているか
+	/// </summary>
+	/// <returns>カプセルコライダーがあればtrue</returns>
+	bool HasCapsule() { return myCollider.hasCapsule; }
+
+	/// <summary>
+	/// ボックスコライダーを持っているか
+	/// </summary>
+	/// <returns>ボックスコライダーがあればtrue</returns>
+	bool HasBox() { return myCollider.hasBox; }
+
+	/// <summary>
+	/// コライダーのゲット
+	/// </summary>
+	/// <returns>登録されたコライダー</returns>
+	Collider GetCollider() { return myCollider; }
+
+	/// <summary>
+	/// 接触時の処理
+	/// </summary>
+	/// <param name="">接触した相手のポインタ</param>
+	virtual void OnCollision(GameObject*) {}
+
+	/// <summary>
+	/// 位置の設定
+	/// </summary>
+	/// <param name="pos">適応する位置</param>
+	void SetPos(Vector2 pos) {
+		position = pos;
+	}
+	/// <summary>
+	/// 位置を取得する
+	/// </summary>
+	/// <returns>現在の位置</returns>
+	Vector2 GetPos() { return position; }
+
+private:
+	bool destroy;
+	bool dontDestroy;
+	Tag myTag;
+protected:
+	//コライダー
+	Collider myCollider;
+	//画像保存用ハンドル
+	int hImage = -1;
+	//位置 コリジョン処理の関係でGameObjectに移動
+	Vector2 position;
+};

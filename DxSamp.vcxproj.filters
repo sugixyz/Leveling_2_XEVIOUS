@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{efcbc5cd-dbc5-47dd-a54d-dd013a7b060f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Tool">
+      <UniqueIdentifier>{07cef613-38c0-4e48-b6fe-712de03980de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Object">
+      <UniqueIdentifier>{543918ab-5138-4172-a386-f9ca7cc68983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{e873ece5-55f1-4fc6-9b68-db049a31138d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Collid">
+      <UniqueIdentifier>{957b21fe-b248-4bf8-9b26-5ad0018f739e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui">
+      <UniqueIdentifier>{2d10f277-badb-4ffc-a53d-7d96b3be3afd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\DataHolder.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\Input.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\theMain.cpp" />
+    <ClCompile Include="Script\Engine\Scene\BootScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\ClearScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\GameOver.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\PlayScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\ResultScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\SceneFactory.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\SceneManager.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\TitleScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Object\ObjectManager.cpp">
+      <Filter>Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Collid\CollidManager.cpp">
+      <Filter>Engine\Collid</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Ui.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Script\Engine\Tool\CsvReader.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\DataHolder.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Input.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Math2D.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\globals.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\BootScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\ClearScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\GameOver.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\PlayScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\ResultScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\SceneBase.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\SceneFactory.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\SceneManager.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\TitleScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Object\Character.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Object\GameObject.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Object\ObjectManager.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Time.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Lerp.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Event.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Collid\CollidManager.h">
+      <Filter>Engine\Collid</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Collid\Collider.h">
+      <Filter>Engine\Collid</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Ui.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
