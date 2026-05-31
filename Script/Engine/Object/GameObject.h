@@ -101,6 +101,31 @@ public:
 	Collider GetCollider() { return myCollider; }
 
 	/// <summary>
+	/// カプセルコライダーのセット
+	/// </summary>
+	/// <param name="startPos">始点</param>
+	/// <param name="endPos">終点</param>
+	/// <param name="rad">半径</param>
+	/// <param name="layer">自分を識別するレイヤー</param>
+	/// <param name="mask">当たりたい対象のマスク（デフォルトなし）</param>
+	void SetCapsule(Vector2 sPos, Vector2 ePos, float rad,Layer layer ,uint32_t mask = 0x00000000)
+	{
+		myCollider.SetCapsule(sPos, ePos, rad, layer, mask);
+	}
+
+	/// <summary>
+	/// ボックスコライダーのセット
+	/// </summary>
+	/// <param name="startPos">始点</param>
+	/// <param name="endPos">終点</param>
+	/// <param name="layer">自分を識別するレイヤー</param>
+	/// <param name="mask">当たりたい対象のマスク（デフォルトなし）</param>
+	void SetBox(Vector2 sPos, Vector2 ePos, Layer layer, uint32_t mask = 0x00000000)
+	{
+		myCollider.SetBox(sPos, ePos, layer, mask);
+	}
+
+	/// <summary>
 	/// 接触時の処理
 	/// </summary>
 	/// <param name="">接触した相手のポインタ</param>

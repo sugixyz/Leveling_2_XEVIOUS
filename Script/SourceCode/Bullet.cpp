@@ -3,21 +3,19 @@
 Bullet::Bullet(Tag tag,Vector2 pos, Vector2 vel = {0.0f,0.0f})
 	:Character(Tag::ATTACK)
 {
+	radius = 3;
 	position = pos;
 	velocity = vel;
-	radius = 3;
-
-	Vector2 start = { 0,0 };
 
 	if (tag == Tag::PLAYER)
 	{
 		uint32_t mask = (uint32_t)Layer::TARUKENN | (uint32_t)Layer::TOROIDO | (uint32_t)Layer::BOSS;
-		myCollider.SetCapsule(start, start, radius, Layer::PLAYER_BULLET, mask);
+		SetCenterCircle(Layer::PLAYER_BULLET, mask);
 	}
 	else if (tag == Tag::ENEMY)
 	{
 		uint32_t mask = (uint32_t)Layer::PLAYER;
-		myCollider.SetCapsule(start, start, radius, Layer::ENEMY_BULLET, mask);
+		SetCenterCircle(Layer::ENEMY_BULLET, mask);
 	}
 
 }

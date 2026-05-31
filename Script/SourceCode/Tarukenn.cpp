@@ -1,15 +1,18 @@
 ﻿#include "Tarukenn.h"
+#include"Bullet.h"
 
 Tarukenn::Tarukenn()
 	:Character(Tag::ENEMY)
 {
-	position = { (float)GetRand(SCREEN_WIDTH),0.0f };
-	velocity = CalculationVelocity();
 	radius = 20;
+	position = { (float)GetRand(SCREEN_WIDTH),(float)-radius};
+	velocity = CalculationVelocity(SPEED);
+	targetY = GetRand(200) + SCREEN_HEIGHT / 2;
+	state = State::CHASE;
 
 	Vector2 start = { 0,0 };
 	uint32_t mask = (uint32_t)Layer::PLAYER | (uint32_t)Layer::PLAYER_BULLET;
-	myCollider.SetCapsule(start, start, radius, Layer::TARUKENN, mask);
+	SetCenterCircle(Layer::TARUKENN, mask);
 }
 
 Tarukenn::~Tarukenn()
@@ -17,7 +20,18 @@ Tarukenn::~Tarukenn()
 
 void Tarukenn::Update()
 {
-	Move();
+	switch (state)
+	{
+	case State::CHASE:
+		UpdateChase();
+		break;
+	case State::ATTACK:
+		UpdateAttack();
+		break;
+	case State::RETURN:
+		UpdateReturn();
+		break;
+	}
 	CheckOutPos();
 }
 
@@ -45,14 +59,44 @@ void Tarukenn::OnCollision(GameObject * other)
 void Tarukenn::ShotBullet()
 {}
 
-Vector2 Tarukenn::CalculationVelocity()
+Vector2 Tarukenn::CalculationVelocity(float speed)
 {
-	auto pl = FindTagObjects(Tag::PLAYER);
-	for (GameObject* p : pl)
-	{
-		Vector2 toPlayer = p->GetPos() - position;
-		Vector2 dir = Math2D::Normalize(toPlayer);
-		return dir * SPEED;
-	}
+	GameObject* p = FindTagObjects(Tag::PLAYER)[0];
+	Vector2 toPlayer = p->GetPos() - position;
+	Vector2 dir = Math2D::Normalize(toPlayer);
+	return dir * speed;
 	return { 0,0 };
+}
+
+void Tarukenn::UpdateChase()
+{
+	Move();
+	if (CheckCanAttack())
+	{
+		state = State::ATTACK;
+	}
+}
+
+void Tarukenn::UpdateAttack()
+{
+	attackTimer.Update();
+	if (attackTimer.isExpired(0.2f))
+	{
+		new Bullet(GetTag(), position, CalculationVelocity(BULLET_SPEED));
+	}
+	else if (attackTimer.isExpired(0.5f))
+	{
+		state = State::RETURN;
+		velocity = { 0,-SPEED * 2 };
+	}
+}
+
+void Tarukenn::UpdateReturn()
+{
+	Move();
+}
+
+bool Tarukenn::CheckCanAttack()
+{
+	return position.y >= targetY;
 }

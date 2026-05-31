@@ -5,16 +5,16 @@
 Player::Player()
 	:Character(Tag::PLAYER)
 {
+	radius = 20;
 	position = { SCREEN_WIDTH / 2, 700.0f };
 	velocity = { 0.0f,0.0f };
-	radius = 20;
 	hp = MAX_HP;
 
 	new Ui("残機", &hp);
 
-	Vector2 start = { 0,0 };
-	uint32_t mask = (uint32_t)Layer::TARUKENN | (uint32_t)Layer::TOROIDO | (uint32_t)Layer::BOSS;
-	myCollider.SetCapsule(start, start, radius, Layer::PLAYER, mask);
+	uint32_t mask = (uint32_t)Layer::TARUKENN | (uint32_t)Layer::TOROIDO | (uint32_t)Layer::BOSS | (uint32_t)Layer::ENEMY_BULLET;
+	SetCenterCircle(Layer::PLAYER, mask);
+	//SetCenterBox(Layer::PLAYER, mask);
 }
 
 Player::~Player()

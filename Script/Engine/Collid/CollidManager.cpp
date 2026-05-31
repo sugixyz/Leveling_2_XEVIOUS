@@ -7,6 +7,7 @@
 namespace
 {
 	const unsigned int DEBUG_COL = GetColor(0, 255, 0);
+	//const unsigned int DEBUG_COL = GetColor(0,0,0);
 }
 
 void CollidManager::Update()
