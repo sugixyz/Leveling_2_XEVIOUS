@@ -62,7 +62,7 @@ void Ui::Draw()
 	}
 	else if (floatVal != nullptr)
 	{
-		DrawFormatString(x, y, color, "%s %f", title.c_str(), *floatVal);
+		DrawFormatString(x, y, color, "%s %.3f", title.c_str(), *floatVal);
 	}
 	else
 	{

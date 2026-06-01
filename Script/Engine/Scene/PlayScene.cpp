@@ -11,6 +11,7 @@ PlayScene::PlayScene()
 	gGameTimer.timer = 0.0f;
 
 	new Ui("タイマー", &gGameTimer.timer);
+	new Ui("フレーム間時間", &gDeltaTime);
 
 	new Stage();
 }

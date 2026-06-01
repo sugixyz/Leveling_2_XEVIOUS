@@ -156,7 +156,8 @@ const float YIELD_FRAME = -1.0f;
 /// </summary>
 struct Coroutine
 {
-	float timer = 0.0f;
+	Timer timer;
+	float sec = 0.0f;
 	std::function<void()> callback = nullptr;
 	bool isActive = false;
 
@@ -170,18 +171,18 @@ struct Coroutine
 		if (!isActive)return;
 		
 		//secが初期値のままなら１フレーム後に実行
-		if (timer == YIELD_FRAME)
+		if (timer.timer == YIELD_FRAME)
 		{
-			timer = 0.0f;
+			sec = 0.0f;
 			return;
 		}
 
-		float dt = Time::GetDeltaTime();
-		timer -= dt;
-		if (timer <= 0.0f)
+		timer.Update();
+		if (callback)callback();
+
+		if(timer.isExpired(sec))
 		{
-			isActive = false;
-			if (callback)callback();
+			Reset();
 		}
 	}
 	/// <summary>
@@ -190,9 +191,9 @@ struct Coroutine
 	/// </summary>
 	/// <param name="func">実行する関数</param>
 	/// <param name="sec">待つ時間（指定しなければ次のフレームで実行）</param>
-	void Start(std::function<void()> func,float sec = YIELD_FRAME)
+	void Start(std::function<void()> func,float second = YIELD_FRAME)
 	{
-		timer = sec;
+		sec = second;
 		callback = func;
 		isActive = true;
 	}
@@ -214,6 +215,26 @@ struct Coroutine
 	bool IsActive()
 	{
 		return isActive;
+	}
+
+	/// <summary>
+	/// コルーチンの最後かどうか
+	/// </summary>
+	/// <returns>最後ならtrue</returns>
+	bool IsEnd()
+	{
+		return timer.isExpired(sec);
+	}
+
+	/// <summary>
+	/// リセット用関数
+	/// </summary>
+	void Reset()
+	{
+		timer.Reset();
+		sec = 0.0f;
+		callback = nullptr;
+		isActive = false;
 	}
 };
 

@@ -9,13 +9,12 @@ public:
 	void Update() override;
 	void Draw() override;
 private:
-	void CreateEnemy(float x);
+	void IECreateEnemy();
 private:
-	Timer createTimer;
-	bool isCreate = false;
+	Coroutine create;
 	float createX = 0.0f;
 private:
 	const unsigned int STAGE_COLOR = GetColor(30, 120, 30);
-	const float CREATE_ENEMY_INTERVAL = 2.0f;
-	const float ENEMY_OFFSET_X = 20;
+	static constexpr float CREATE_ENEMY_INTERVAL = 2.0f;
+	static constexpr float ENEMY_OFFSET_X = 20;
 };

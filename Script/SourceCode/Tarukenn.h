@@ -32,7 +32,7 @@ private:
 
 	Timer attackTimer;
 private:
-	const float SPEED = 5.0f;
-	const float ATTACK_DIST = 200.0f;
-	const float BULLET_SPEED = 8.0f;
+	static constexpr float SPEED = 5.0f;
+	static constexpr float ATTACK_DIST = 200.0f;
+	static constexpr float BULLET_SPEED = 8.0f;
 };

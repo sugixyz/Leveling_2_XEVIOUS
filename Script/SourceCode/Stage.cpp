@@ -14,18 +14,13 @@ Stage::~Stage()
 
 void Stage::Update()
 {
-	if (!isCreate && gGameTimer.IsEvery(CREATE_ENEMY_INTERVAL))
+	create.Update();
+	if (!create.IsActive() && gGameTimer.IsEvery(CREATE_ENEMY_INTERVAL))
 	{
-		isCreate = true;
-		createTimer.Reset();
 		createX = GetRand(SCREEN_WIDTH);
+		create.Request([this] {IECreateEnemy();}, 0.6f);
 	}
 
-	if (isCreate)
-	{
-		CreateEnemy(createX);
-		createTimer.Update();
-	}
 }
 
 void Stage::Draw()
@@ -35,10 +30,9 @@ void Stage::Draw()
 	DrawBox(x, y, x + SCREEN_WIDTH, y + SCREEN_HEIGHT, STAGE_COLOR, TRUE);
 }
 
-void Stage::CreateEnemy(float x)
+void Stage::IECreateEnemy()
 {
-	if (createTimer.isExpired(0))new Tarukenn(x);
-	else if (createTimer.isExpired(0.2f))new Tarukenn(x - ENEMY_OFFSET_X);
-	else if (createTimer.isExpired(0.4f))new Tarukenn(x + ENEMY_OFFSET_X);
-	else if (createTimer.timer >= 0.6)isCreate = false;
+	float x = createX;
+	if (create.timer.IsEvery(0.2f))new Tarukenn(createX);
+	//if (create.IsEnd())new Tarukenn(createX);
 }
