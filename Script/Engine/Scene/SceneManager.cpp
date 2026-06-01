@@ -1,5 +1,6 @@
 ﻿#include "SceneManager.h"
 #include "SceneFactory.h"
+#include"../Tool/Event.h"
 
 /// <summary>
 /// シーンの切り替えを管理するクラス
@@ -38,6 +39,7 @@ void SceneManager::Update()
 			delete m_currentScene;
 			m_currentScene = nullptr;
 			ObjectManager::DeleteAllGameObject();
+			Event::Instance().ClearAll();
 		}
 		m_currentScene = m_factory->Create((SCENE_NAME)*m_nextName); // 次のシーンを作成
 		*m_currentName = *m_nextName;

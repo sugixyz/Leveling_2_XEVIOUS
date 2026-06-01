@@ -9,9 +9,7 @@
 /// </summary>
 enum class Id
 {
-	OnFruitLanded,
-	OVER,
-	CLEAR,
+	ADD_SCORE,
 	SIZE
 };
 
@@ -29,20 +27,44 @@ public:
 	unsigned int Add(std::function<void()> func)
 	{
 		unsigned int currentId = funcId++;
-		functions.push_back({ currentId,func });
+		funcVoids.push_back({ currentId,func });
 		return currentId;
 	}
+	/// <summary>
+	/// イベントを登録する（int引数あり）
+	/// </summary>
+	/// <param name="func">登録する関数</param>
+	/// <returns>イベント番号</returns>
+	unsigned int Add(std::function<void(int)> func)
+	{
+		unsigned int currentId = funcId++;
+		funcInts.push_back({ currentId,func });
+		return currentId;
+	}
+
 	/// <summary>
 	/// イベントの削除
 	/// </summary>
 	/// <param name="id">削除したいイベント番号</param>
 	void Remove(unsigned int id)
 	{
-		for (auto itr = functions.begin(); itr != functions.end();)
+		for (auto itr = funcVoids.begin(); itr != funcVoids.end();)
 		{
 			if (itr->id == id)
 			{
-				itr = functions.erase(itr);
+				itr = funcVoids.erase(itr);
+				return;
+			}
+			else
+			{
+				itr++;
+			}
+		}
+		for (auto itr = funcInts.begin(); itr != funcInts.end();)
+		{
+			if (itr->id == id)
+			{
+				itr = funcInts.erase(itr);
 				return;
 			}
 			else
@@ -56,9 +78,20 @@ public:
 	/// </summary>
 	void Invoke()
 	{
-		for (const auto& func : functions)
+		for (const auto& func : funcVoids)
 		{
 			if (func.callback)func.callback();
+		}
+	}
+	/// <summary>
+	/// 登録されている関数の実行（int引数あり）
+	/// </summary>
+	/// <param name="arg">intの引数</param>
+	void Invoke(int arg)
+	{
+		for (const auto& func : funcInts)
+		{
+			if (func.callback)func.callback(arg);
 		}
 	}
 	/// <summary>
@@ -66,17 +99,26 @@ public:
 	/// </summary>
 	void RemoveAll()
 	{
-		functions.clear();
+		funcVoids.clear();
+		funcInts.clear();
 	}
 private:
 	//IDと実行する関数を保持する構造体
-	struct FuncList
+	struct FuncListVoid
 	{
 		unsigned int id;
 		std::function<void()> callback;
 	};
+	struct FuncListInt
+	{
+		unsigned int id;
+		std::function<void(int)> callback;
+	};
 	//登録するイベント
-	std::vector<FuncList> functions;
+	//引数なし
+	std::vector<FuncListVoid> funcVoids;
+	//引数あり int
+	std::vector<FuncListInt> funcInts;
 	//イベント番号管理ようの整数
 	unsigned int funcId = 0;
 };

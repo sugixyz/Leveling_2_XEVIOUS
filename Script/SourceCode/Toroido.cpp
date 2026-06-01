@@ -1,5 +1,6 @@
 ﻿#include "Toroido.h"
 #include"Bullet.h"
+#include"../Engine/Tool/Event.h"
 
 Toroido::Toroido(float x)
     :Character(Tag::ENEMY)
@@ -43,6 +44,7 @@ void Toroido::OnCollision(GameObject * other)
 	if (other->GetTag() == Tag::ATTACK)
 	{
 		DestroyMe();
+		Event::Instance().Get(Id::ADD_SCORE).Invoke(100);
 	}
 }
 

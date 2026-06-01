@@ -13,8 +13,13 @@ public:
 	void CheckOutPos() override;
 private:
 	void ShotBullet();
+	void IEGameOver();
+	void AddScore(int point) { score += point; }
 private:
 	int hp;
+	int score;
+	Coroutine gameOver;
+	unsigned int eventId;
 private:
 	static constexpr int MAX_HP = 5;
 	static constexpr float SPEED = 5.0f;

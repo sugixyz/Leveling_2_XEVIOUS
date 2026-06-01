@@ -1,5 +1,6 @@
 ﻿#include "Tarukenn.h"
 #include"Bullet.h"
+#include"../Engine/Tool/Event.h"
 
 Tarukenn::Tarukenn()
 	:Character(Tag::ENEMY)
@@ -53,6 +54,7 @@ void Tarukenn::OnCollision(GameObject * other)
 	if (other->GetTag() == Tag::ATTACK)
 	{
 		DestroyMe();
+		Event::Instance().Get(Id::ADD_SCORE).Invoke(200);
 	}
 }
 
