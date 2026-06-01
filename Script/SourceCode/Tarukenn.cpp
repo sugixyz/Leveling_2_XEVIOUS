@@ -1,18 +1,18 @@
 ﻿#include "Tarukenn.h"
 #include"Bullet.h"
 
-Tarukenn::Tarukenn(float x)
+Tarukenn::Tarukenn()
 	:Character(Tag::ENEMY)
 {
 	radius = 20;
-	position = { x,(float)-radius};
+	position = { (float)GetRand(SCREEN_WIDTH),(float)-radius};
 	velocity = CalculationVelocity(SPEED);
 	targetY = GetRand(200) + SCREEN_HEIGHT / 2;
 	state = State::CHASE;
 
 	Vector2 start = { 0,0 };
 	uint32_t mask = (uint32_t)Layer::PLAYER | (uint32_t)Layer::PLAYER_BULLET;
-	SetCenterCircle(Layer::TARUKENN, mask);
+	SetCenterBox(Layer::TARUKENN, mask);
 }
 
 Tarukenn::~Tarukenn()
@@ -40,7 +40,7 @@ void Tarukenn::Draw()
 	float x = position.x + SCREEN_OFFSET_X;
 	float y = position.y + SCREEN_OFFSET_Y;
 
-	DrawCircle(x, y, radius, COL_RED, TRUE);
+	DrawBox(x - radius, y - radius, x + radius, y + radius, COL_RED, TRUE);
 }
 
 void Tarukenn::Move()
@@ -56,16 +56,12 @@ void Tarukenn::OnCollision(GameObject * other)
 	}
 }
 
-void Tarukenn::ShotBullet()
-{}
-
 Vector2 Tarukenn::CalculationVelocity(float speed)
 {
 	GameObject* p = FindTagObjects(Tag::PLAYER)[0];
 	Vector2 toPlayer = p->GetPos() - position;
 	Vector2 dir = Math2D::Normalize(toPlayer);
 	return dir * speed;
-	return { 0,0 };
 }
 
 void Tarukenn::UpdateChase()

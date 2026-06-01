@@ -4,14 +4,13 @@
 class Tarukenn : public Character
 {
 public:
-	Tarukenn(float x);
+	Tarukenn();
 	~Tarukenn();
 	void Update() override;
 	void Draw() override;
 	void Move() override;
 	void OnCollision(GameObject* other);
 private:
-	void ShotBullet();
 	Vector2 CalculationVelocity(float speed);
 	
 	void UpdateChase();

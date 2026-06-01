@@ -91,6 +91,9 @@
     <ClCompile Include="Script\SourceCode\Tarukenn.cpp">
       <Filter>Tarukenn</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\Toroido.cpp">
+      <Filter>Toroido</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">

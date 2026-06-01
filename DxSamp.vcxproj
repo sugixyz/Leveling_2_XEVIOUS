@@ -149,6 +149,7 @@
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\Stage.cpp" />
     <ClCompile Include="Script\SourceCode\Tarukenn.cpp" />
+    <ClCompile Include="Script\SourceCode\Toroido.cpp" />
     <ClCompile Include="Script\SourceCode\Ui.cpp" />
     <ClCompile Include="Script\theMain.cpp" />
   </ItemGroup>
