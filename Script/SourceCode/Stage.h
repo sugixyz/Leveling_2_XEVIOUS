@@ -14,6 +14,7 @@ private:
 	void CreatePattern2();
 	void CreatePattern3();
 	void CreateBoss();
+	void NextStage();
 private:
 	enum Pattern
 	{
@@ -25,6 +26,8 @@ private:
 	Pattern pattern;
 	Coroutine create;
 	float createX = 0.0f;
+	unsigned int eventId;
+	int stage;
 private:
 	const unsigned int STAGE_COLOR = GetColor(30, 120, 30);
 	static constexpr float CREATE_TOROIDO_INTERVAL = 2.0f;

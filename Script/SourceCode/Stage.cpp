@@ -2,16 +2,27 @@
 #include"Player.h"
 #include"Tarukenn.h"
 #include"Toroido.h"
+#include"Boss.h"
+#include"Ui.h"
+#include"../Engine/Tool/Event.h"
 
 Stage::Stage()
 	:GameObject(Tag::STAGE)
 {
 	new Player();
 	pattern = Pattern::PATTERN1;
+
+	stage = 1;
+	new Ui("ステージ", &stage);
+
+	eventId = Event::Instance().Get(Id::NEXT_STAGE).Add([this] {NextStage(); });
+
 }
 
 Stage::~Stage()
-{}
+{
+	Event::Instance().Get(Id::NEXT_STAGE).Remove(eventId);
+}
 
 void Stage::Update()
 {
@@ -94,8 +105,16 @@ void Stage::CreatePattern3()
 
 void Stage::CreateBoss()
 {
-	//ToDo: ボスの生成
-	//ToDo: タイマーの停止
-	//ToDo: ボスが死んだらイベントでタイマーを再開（必要ないかも）
-	//ToDo: 35秒になったらタイマーのリセット、パターン１に行き、ステージを進める
+	if (gGameTimer.isExpired(30.0f))
+	{
+		new Boss();
+	}
+}
+
+void Stage::NextStage()
+{
+	stage++;
+
+	gGameTimer.Reset();
+	pattern = Pattern::PATTERN1;
 }

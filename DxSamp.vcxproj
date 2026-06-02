@@ -145,6 +145,7 @@
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp" />
     <ClCompile Include="Script\Engine\Tool\DataHolder.cpp" />
     <ClCompile Include="Script\Engine\Tool\Input.cpp" />
+    <ClCompile Include="Script\SourceCode\Boss.cpp" />
     <ClCompile Include="Script\SourceCode\Bullet.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\Stage.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Script\Engine\Tool\Lerp.h" />
     <ClInclude Include="Script\Engine\Tool\Math2D.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
+    <ClInclude Include="Script\SourceCode\Boss.h" />
     <ClInclude Include="Script\SourceCode\Bullet.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\Stage.h" />

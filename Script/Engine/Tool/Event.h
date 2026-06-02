@@ -10,6 +10,7 @@
 enum class Id
 {
 	ADD_SCORE,
+	NEXT_STAGE,
 	SIZE
 };
 

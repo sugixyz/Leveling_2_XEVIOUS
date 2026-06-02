@@ -1,6 +1,7 @@
 ﻿#include "PlayScene.h"
 #include"../../SourceCode/Ui.h"
 #include"../../SourceCode/Stage.h"
+#include"../Tool/Event.h"
 
 /// <summary>
 /// プレイ中の画面の遷移をする
@@ -8,11 +9,11 @@
 
 PlayScene::PlayScene()
 {
-	gGameTimer.timer = 0.0f;
+	gGameTimer.Reset();
 
 	new Ui("タイマー", &gGameTimer.timer);
 	new Ui("フレーム間時間", &gDeltaTime);
-
+	
 	new Stage();
 }
 
@@ -59,4 +60,3 @@ void PlayScene::DrawScreenFrame()
 	p2 = { SCREEN_WIDTH + SCREEN_OFFSET_X * 2, WIN_HEIGHT };
 	DrawBox((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, COL_BLACK, TRUE);
 }
-

@@ -34,6 +34,9 @@
     <Filter Include="Toroido">
       <UniqueIdentifier>{9ac7b4f3-722b-4539-b4f4-744df29b740f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Boss">
+      <UniqueIdentifier>{9d0c8d65-be85-436a-a0b5-6bab842fb89e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -94,6 +97,7 @@
     <ClCompile Include="Script\SourceCode\Toroido.cpp">
       <Filter>Toroido</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\Boss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -179,6 +183,9 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Toroido.h">
       <Filter>Toroido</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Boss.h">
+      <Filter>Boss</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

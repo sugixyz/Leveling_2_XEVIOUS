@@ -11,7 +11,6 @@ Tarukenn::Tarukenn()
 	targetY = GetRand(200) + SCREEN_HEIGHT / 2;
 	state = State::CHASE;
 
-	Vector2 start = { 0,0 };
 	uint32_t mask = (uint32_t)Layer::PLAYER | (uint32_t)Layer::PLAYER_BULLET;
 	SetCenterBox(Layer::TARUKENN, mask);
 }
