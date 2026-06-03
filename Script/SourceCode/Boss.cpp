@@ -2,13 +2,19 @@
 #include"../Engine/Tool/Event.h"
 #include"Bullet.h"
 
+namespace
+{
+	int maxHp = 30;
+}
+
 Boss::Boss()
 	:Character(Tag::ENEMY)
 {
 	radius = 80;
 	position = { float(SCREEN_WIDTH / 2),(float)-radius };
 	velocity = { 0 , SPEED };
-	hp = MAX_HP;
+	hp = maxHp;
+	maxHp += 10;
 	state = State::MOVE;
 
 	uint32_t mask = (uint32_t)Layer::PLAYER_BULLET;

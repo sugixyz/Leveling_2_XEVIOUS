@@ -33,7 +33,6 @@ private:
 	};
 	Dir shotDir = Dir::LEFT;
 private:
-	static constexpr int MAX_HP = 30;
 	static constexpr float SPEED = 4.0f;
 	static constexpr float MOVE_OFFSET_Y = 200.0f;
 	static constexpr float SHOT_OFFSET_X = 30;
